@@ -10,8 +10,10 @@ routes.get('/', (req, res) => {
 
 routes.get('/filmes', FilmeController.index);
 routes.get('/filmes/:filmeId', FilmeController.findById);
+routes.post('/filmes', FilmeController.save);
 
 routes.get('/expectadores', ExpectadorController.index);
 routes.get('/expectadores/:expectadorId', ExpectadorController.findById);
+routes.post('/expectadores', ExpectadorController.save);
 
 module.exports = routes;

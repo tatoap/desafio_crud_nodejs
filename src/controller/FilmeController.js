@@ -14,5 +14,13 @@ module.exports = {
             }
         });
         return res.json(filme);
+    }, 
+
+    async save(req, res) {
+        const { nome, genero, ano_lancamento } = req.body;
+        const filme = await Filme.create({
+            nome, genero, ano_lancamento
+        });
+        return res.json(filme)
     }
 }

@@ -14,5 +14,13 @@ module.exports = {
             }
         });
         return res.json(expectador);
+    },
+
+    async save(req, res) {
+        const { nome, idade } = req.body;
+        const expectador = await Expectador.create({
+            nome, idade
+        });
+        return res.json(expectador)
     }
 }
