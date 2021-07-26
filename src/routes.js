@@ -11,11 +11,13 @@ routes.get('/', (req, res) => {
 routes.get('/filmes', FilmeController.index);
 routes.get('/filmes/:filmeId', FilmeController.findById);
 routes.post('/filmes', FilmeController.save);
+routes.put('/filmes/:filmeId', FilmeController.update);
 routes.delete('/filmes/:filmeId', FilmeController.delete);
 
 routes.get('/expectadores', ExpectadorController.index);
 routes.get('/expectadores/:expectadorId', ExpectadorController.findById);
 routes.post('/expectadores', ExpectadorController.save);
+routes.put('/expectadores/:expectadorId', ExpectadorController.update);
 routes.delete('/expectadores/:expectadorId', ExpectadorController.delete);
 
 module.exports = routes;

@@ -24,6 +24,19 @@ module.exports = {
         return res.json(filme)
     },
 
+    async update(req, res) {
+        const { nome, genero, ano_lancamento } = req.body;
+        const { filmeId } = req.params;
+        const filme = await Filme.update({
+            nome, genero, ano_lancamento
+        },{
+            where: {
+                id: filmeId
+            }
+        });
+        return res.json(filme)
+    },
+
     async delete(req, res) {
         const { filmeId } = req.params;
         await Filme.destroy({

@@ -24,6 +24,19 @@ module.exports = {
         return res.json(expectador)
     },
 
+    async update(req, res) {
+        const { nome, idade } = req.body;
+        const { expectadorId } = req.params;
+        const expectador = await Expectador.update({
+            nome, idade
+        },{
+            where: {
+                id: expectadorId
+            }
+        });
+        return res.json(expectador)
+    },
+
     async delete(req, res) {
         const { expectadorId } = req.params;
         await Expectador.destroy({
