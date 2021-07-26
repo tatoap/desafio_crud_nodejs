@@ -22,5 +22,15 @@ module.exports = {
             nome, genero, ano_lancamento
         });
         return res.json(filme)
+    },
+
+    async delete(req, res) {
+        const { filmeId } = req.params;
+        await Filme.destroy({
+            where: {
+                id: filmeId
+            }
+        });
+        return res.sendStatus(204)
     }
 }

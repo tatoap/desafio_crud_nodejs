@@ -22,5 +22,15 @@ module.exports = {
             nome, idade
         });
         return res.json(expectador)
+    },
+
+    async delete(req, res) {
+        const { expectadorId } = req.params;
+        await Expectador.destroy({
+            where: {
+                id: expectadorId
+            }
+        });
+        return res.sendStatus(204)
     }
 }
