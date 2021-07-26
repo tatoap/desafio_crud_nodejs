@@ -9,7 +9,9 @@ routes.get('/', (req, res) => {
 })
 
 routes.get('/filmes', FilmeController.index);
+routes.get('/filmes/:filmeId', FilmeController.findById);
 
 routes.get('/expectadores', ExpectadorController.index);
+routes.get('/expectadores/:expectadorId', ExpectadorController.findById);
 
 module.exports = routes;
