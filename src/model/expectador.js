@@ -5,6 +5,8 @@ class Expectador extends Model {
         super.init({
             nome: DataTypes.STRING,
             idade: DataTypes.INTEGER
+        }, {
+            sequelize
         })
     }
 }

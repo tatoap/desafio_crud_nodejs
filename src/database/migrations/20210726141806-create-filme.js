@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('filme', {
+    return queryInterface.createTable('filmes', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -27,6 +27,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('filme');
+    return queryInterface.dropTable('filmes');
   }
 };

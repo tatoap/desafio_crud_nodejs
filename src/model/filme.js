@@ -6,6 +6,8 @@ class Filme extends Model {
             nome: DataTypes.STRING,
             genero: DataTypes.STRING,
             ano_lancamento: DataTypes.INTEGER
+        }, {
+            sequelize
         })
     }
 }
