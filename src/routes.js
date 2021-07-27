@@ -4,20 +4,19 @@ const FilmeController = require('./controller/FilmeController');
 
 const routes = express.Router();
 
-routes.get('/', (req, res) => {
-    res.send('Olá mundo')
-})
+routes.get('/filmes', FilmeController.listar);
+routes.get('/filmes/:filmeId', FilmeController.procurarPorId);
+routes.post('/filmes', FilmeController.salvar);
+routes.put('/filmes/:filmeId', FilmeController.atualizar);
+routes.delete('/filmes/:filmeId', FilmeController.excluir);
+routes.get('/filmes/:filmeId/expectadores', FilmeController.expectadoresPorFilme);
 
-routes.get('/filmes', FilmeController.index);
-routes.get('/filmes/:filmeId', FilmeController.findById);
-routes.post('/filmes', FilmeController.save);
-routes.put('/filmes/:filmeId', FilmeController.update);
-routes.delete('/filmes/:filmeId', FilmeController.delete);
-
-routes.get('/expectadores', ExpectadorController.index);
-routes.get('/expectadores/:expectadorId', ExpectadorController.findById);
-routes.post('/expectadores', ExpectadorController.save);
-routes.put('/expectadores/:expectadorId', ExpectadorController.update);
-routes.delete('/expectadores/:expectadorId', ExpectadorController.delete);
+routes.get('/expectadores', ExpectadorController.listar);
+routes.get('/expectadores/:expectadorId', ExpectadorController.procurarPorId);
+routes.post('/expectadores', ExpectadorController.salvar);
+routes.put('/expectadores/:expectadorId', ExpectadorController.atualizar);
+routes.delete('/expectadores/:expectadorId', ExpectadorController.excluir);
+routes.get('/expectadores/:expectadorId/filmes', ExpectadorController.filmesPorExpectador);
+routes.put('/expectadores/:expectadorId/filmes/:filmeId', ExpectadorController.marcarFilmeVisto);
 
 module.exports = routes;

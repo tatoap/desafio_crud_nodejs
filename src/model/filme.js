@@ -12,4 +12,12 @@ class Filme extends Model {
     }
 }
 
+Filme.associate = function(model) {
+    Filme.belongsToMany(model.Expectador, {
+        through: 'expectador_filmes', 
+        foreignKey: 'filme_id', 
+        as: 'filmes'
+    })
+};
+
 module.exports = Filme;

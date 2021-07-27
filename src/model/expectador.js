@@ -8,7 +8,15 @@ class Expectador extends Model {
         }, {
             sequelize
         })
-    }
-}
+    };
+};
+
+Expectador.associate = function(model) {
+    Expectador.belongsToMany(model.Filme, {
+        through: 'expectador_filmes', 
+        foreignKey: 'expectador_id', 
+        as: 'expectadores'
+    })
+};
 
 module.exports = Expectador;
